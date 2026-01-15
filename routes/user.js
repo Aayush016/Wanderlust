@@ -21,9 +21,11 @@ router
       failureRedirect: "/login",
       failureFlash: true,
     }),
-    userController.login
+    (req, res) => {
+      req.flash("success", "Welcome back to Wanderlust!");
+      res.redirect(res.locals.redirectUrl || "/listings");
+    }
   );
-
 
 router.get("/logout", userController.logout);
 
