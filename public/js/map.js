@@ -5,6 +5,10 @@ if (mapContainer) {
   const lon = mapContainer.dataset.lon;
   const MAP_TOKEN = mapContainer.dataset.maptilerKey;
 
+  // 1. Get the new data
+  const title = mapContainer.dataset.title;
+  const loc = mapContainer.dataset.location;
+
   if (!lat || !lon) {
     console.warn("Coordinates missing");
   } else {
@@ -17,6 +21,10 @@ if (mapContainer) {
       }
     ).addTo(map);
 
-    L.marker([lat, lon]).addTo(map).bindPopup("Listing location").openPopup();
+    // 2. Use backticks ` ` to inject the variables into HTML
+    L.marker([lat, lon])
+      .addTo(map)
+      .bindPopup(`<h5>${title}</h5><p>${loc}</p>`)
+      .openPopup();
   }
 }

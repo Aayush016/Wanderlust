@@ -1,3 +1,15 @@
+// process.on("uncaughtException", (err) => {
+//   console.error("🔥 UNCAUGHT EXCEPTION");
+//   console.error(err);
+//   console.trace("📍 STACK TRACE");
+// });
+
+// process.on("unhandledRejection", (reason) => {
+//   console.error("🔥 UNHANDLED PROMISE REJECTION");
+//   console.error(reason);
+//   console.trace("📍 STACK TRACE");
+// });
+
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
